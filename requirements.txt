@@ -37,4 +37,11 @@ uvicorn==0.35.0
 opencv-python-headless==4.12.0.88
 tensorflow-cpu==2.19.0
 python-multipart
+
+# CPU-only PyTorch (must be installed before ultralytics to avoid CUDA bloat)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+
+# YOLO (will use the CPU torch installed above)
 ultralytics>=8.0.0

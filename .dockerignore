@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Model cache (models download from GCS at runtime)
+model_cache/
+
+# Local weights (models download from GCS at runtime)
+weights/
+
+# Test/debug files
+tests/
+debug_*.py
+BOARD2FEN API.postman_collection.json
+
+# Development files
+*.db
+.env
+.env.example
+.git/
+.gitignore
+*.md
+
+# IDE
+.vscode/
+.idea/
+
+# Windows artifacts
+nul

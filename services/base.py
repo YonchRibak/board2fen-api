@@ -6,7 +6,7 @@ import logging
 from pathlib import Path
 
 # Import existing components
-from api._helpers import PredictionResult
+from _helpers import PredictionResult
 
 logger = logging.getLogger(__name__)
 
@@ -83,10 +83,10 @@ class ServiceFactory:
             ValueError: If service_type is not supported
         """
         if service_type == "end_to_end":
-            from api.services.end_to_end import EndToEndPipelineService
+            from services.end_to_end import EndToEndPipelineService
             return EndToEndPipelineService(config)
         elif service_type == "multi_model_pipeline":
-            from api.services.multi_model import MultiModelPipelineService
+            from services.multi_model import MultiModelPipelineService
             return MultiModelPipelineService(config)
         else:
             raise ValueError(f"Unsupported service type: {service_type}")

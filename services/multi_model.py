@@ -7,14 +7,14 @@ import numpy as np
 import cv2
 from pathlib import Path
 
-from api.services.base import ChessPredictionService
-from api._helpers import (
+from services.base import ChessPredictionService
+from _helpers import (
     PredictionResult,
     ImageProcessor,
     FENValidator,
     ModelDownloader
 )
-from api.config import settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 

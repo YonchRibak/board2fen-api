@@ -18,21 +18,21 @@ project_root = current_dir.parent if current_dir.name == "api" else current_dir
 sys.path.insert(0, str(project_root))
 
 # Import configuration
-from api.config import settings
+from config import settings
 
 # Import database components
-from api.database import get_db, check_database_connection, health_check as db_health_check, get_database_info
+from database import get_db, check_database_connection, health_check as db_health_check, get_database_info
 
 # Import our chess service components (NEW MODULAR ARCHITECTURE)
-from api.services.base import ServiceFactory, ChessPredictionService
-from api._helpers import (
+from services.base import ServiceFactory, ChessPredictionService
+from _helpers import (
     FENValidator,
     validate_uploaded_image,
     resize_image_for_model, ImageProcessor
 )
 
 # Import database models
-from api.models import (
+from models import (
     ChessPrediction,
     get_database_statistics,
     check_retraining_threshold,
@@ -42,7 +42,7 @@ from api.models import (
 )
 
 # Import Pydantic schemas
-from api.schemas import (
+from schemas import (
     PredictionResponse,
     CorrectionRequest,
     CorrectionResponse,
@@ -576,7 +576,7 @@ async def get_model_status(db: Session = Depends(get_db)):
 async def get_model_metrics(db: Session = Depends(get_db)):
     """Get comprehensive metrics for all model versions/generations"""
     try:
-        from api.models import ModelVersion, ChessPrediction
+        from models import ModelVersion, ChessPrediction
 
         # Get all model versions
         model_versions = db.query(ModelVersion).order_by(ModelVersion.created_at.asc()).all()

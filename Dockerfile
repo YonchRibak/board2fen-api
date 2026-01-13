@@ -32,10 +32,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy the pre-installed dependencies from the builder
 COPY --from=builder /install /usr/local
 
-# Copy application code into /app/api/ to preserve import structure
-# (code uses "from api.config import settings", etc.)
-COPY . /app/api/
+# Copy application code directly to /app/
+COPY . /app/
 
 EXPOSE 8000
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

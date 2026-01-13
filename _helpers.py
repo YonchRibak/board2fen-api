@@ -23,7 +23,7 @@ project_root = current_dir.parent if current_dir.name == "api" else current_dir
 sys.path.insert(0, str(project_root))
 
 # Import configuration
-from api.config import settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 

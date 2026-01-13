@@ -16,8 +16,8 @@ project_root = current_dir.parent if current_dir.name == "api" else current_dir
 sys.path.insert(0, str(project_root))
 
 # Now use absolute imports
-from api.config import settings
-from api.models import Base
+from config import settings
+from models import Base
 
 logger = logging.getLogger(__name__)
 

@@ -12,3 +12,6 @@ weights/
 *.pt
 *.pth
 *.h5
+
+# Windows reserved device names (can't be deleted)
+nul
